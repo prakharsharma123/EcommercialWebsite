@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Cart</title>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f1f3f6;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #c9d0db;
+      padding: 10px 20px;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 20px;
+      display: flex;
+      max-width: 400px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 2px 0 0 2px;
+    }
+
+    .search-bar button {
+      padding: 8px 15px;
+      background: #7a8fd6;
+      border: none;
+      cursor: pointer;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-icons a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .nav-icons i {
+      font-size: 22px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-icons i:hover {
+      transform: scale(1.1);
+      color: #2874f0;
+    }
+
+    /* MAIN CART SECTION */
+    .main-content {
+      flex: 1;
+      padding: 30px 20px;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .empty-cart {
+      text-align: center;
+    }
+
+    .empty-cart img {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    .empty-cart h2 {
+      color: #212121;
+      margin-bottom: 10px;
+    }
+
+    .empty-cart p {
+      color: #757575;
+      margin-bottom: 20px;
+    }
+
+    .shop-btn {
+      background-color: #2874f0;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .cart-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .item-card {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 15px;
+    }
+
+    .item-card img {
+      width: 100px;
+      margin-right: 20px;
+    }
+
+    .item-details {
+      flex-grow: 1;
+    }
+
+    .item-details h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .item-details p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #c9d0db;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #2874f0;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="photos/Flipcart.svg" alt="Flipkart">
+      </a>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products, brands and more">
+      <button>🔍</button>
+    </div>
+
+    <div class="nav-icons">
+      <a href="account.html">
+        <i class="fas fa-user"></i>
+      </a>
+    </div>
+  </nav>
+
+  <!-- MAIN CART SECTION -->
+  <div class="main-content">
+    <div class="cart-container" id="cartContainer">
+      <!-- Content will be injected by JS -->
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <a href="#">Terms of Use</a> |
+      <a href="#">Privacy</a> |
+      <a href="#">Returns</a> |
+      <a href="#">Security</a> |
+      <a href="#">Help Center</a>
+    </p>
+    <p>© 2007–2025 Flipkart.com</p>
+  </footer>
+
+  <script>
+    // Simulated cart data (replace with localStorage or backend fetch)
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const cartContainer = document.getElementById("cartContainer");
+
+    if (cartItems.length === 0) {
+      cartContainer.innerHTML = `
+        <div class="empty-cart">
+          <img src="https://cdn-icons-png.flaticon.com/512/2038/2038854.png" alt="Empty Cart" />
+          <h2>Your cart is empty!</h2>
+          <p>Add items to it now.</p>
+          <a href="index.html" class="shop-btn">Shop Now</a>
+        </div>
+      `;
+    } else {
+      let itemsHTML = cartItems.map(item => `
+        <div class="item-card">
+          <img src="${item.image}" alt="${item.name}" />
+          <div class="item-details">
+            <h3>${item.name}</h3>
+            <p>Price: ₹${item.price}</p>
+            <p>Quantity: ${item.quantity}</p>
+          </div>
+        </div>
+      `).join("");
+
+      cartContainer.innerHTML = `
+        <h2>Your Cart</h2>
+        <div class="cart-items">
+          ${itemsHTML}
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <title>Fashion Store</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9faff;
+      color: #c9d0db;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #dae5ff;
+      padding: 10px 20px;
+    }
+
+    .logo img {
+      height: 40px;
+      cursor: pointer;
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 20px;
+      display: flex;
+      max-width: 450px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      border-radius: 2px 0 0 2px;
+    }
+
+    .search-bar button {
+      padding: 8px 15px;
+      background: #74b2ff;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .nav-icons i {
+      font-size: 22px;
+      margin-left: 15px;
+      cursor: pointer;
+      color: #111;
+    }
+
+    /* BANNER */
+    .banner {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 550px;
+      object-fit: cover;
+      display: none;
+    }
+
+    .banner img.active {
+      display: block;
+    }
+
+    /* CATEGORIES */
+    .categories {
+      display: flex;              
+      justify-content: center; 
+      flex-wrap: wrap;   
+      gap: 20px;
+      padding: 30px 20px;
+      background: #fff;
+    }
+
+    .categories a.cat {
+      text-decoration: none;
+      color: #333;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .categories a.cat img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      transition: transform 0.3s;
+    }
+
+    .categories a.cat:hover img {
+      transform: scale(1.1);
+    }
+
+    .categories a.cat p {
+      font-weight: bold;
+    }
+
+    /* PRODUCT GRID */
+    .products {
+      padding: 40px 20px;
+      background: #f4f4f4;
+    }
+
+    .products h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 26px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .product-info h4 {
+      margin: 10px 0 5px;
+    }
+
+    .product-info p {
+      margin: 0;
+      font-weight: bold;
+      color: #ff3f6c;
+    
+    }
+
+    /* SALE STRIP */
+.sale-strip {
+  background: #ff3f6c;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* FEATURED COLLECTIONS */
+.collections {
+  padding: 40px 20px;
+  background: #fff;
+}
+.collections h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.collection-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.collection-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+.collection-card:hover img {
+  transform: scale(1.1);
+}
+.collection-card .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* FOOTER */
+.footer {
+  background: #111;
+  color: #ddd;
+  padding: 40px 20px;
+  text-align: center;
+}
+.footer .newsletter input {
+  padding: 10px;
+  width: 250px;
+  border: none;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+.footer .newsletter button {
+  padding: 10px 15px;
+  background: #ff3f6c;
+  border: none;
+  color: white;
+  margin-left: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.footer .socials {
+  margin-top: 20px;
+}
+.footer .socials i {
+  font-size: 22px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.footer .socials i:hover {
+  color: #ff3f6c;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="photos/Flipcart.svg" alt="Logo"></a>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search fashion trends, brands and more">
+      <button>🔍</button>
+    </div>
+    <div class="nav-icons">
+      <i class="fas fa-user"></i>
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-shopping-cart"></i>
+    </div>
+  </nav>
+
+  <!-- ===== BANNER SLIDER ===== -->
+  <div class="banner">
+    <img src="banner/fastion1.jpg" class="active" alt="Banner 1">
+    <img src="banner/f5sandel.jpg" alt="Banner 2">
+    <img src="banner/fastion2.jpg" alt="Banner 3">
+    <img src="banner/f7bueaty.jpg" alt="Banner 4">
+    <img src="banner/fastion4.jpg" alt="Banner 5">
+    <img src="banner/f6shoes.jpg" alt="Banner 6">
+    <img src="banner/fastion3.jpg" alt="Banner 7">
+  </div>
+
+  <!-- ===== CATEGORIES ===== -->
+  <div class="categories">
+    <a href="#" class="cat">
+      <img src="photos/wedding-suit_928002.png" alt="Men">
+      <p>Men</p>
+    </a>
+    <a href="#" class="cat">
+      <img src="photos/clothes_15244315.png" alt="Women">
+      <p>Women</p>
+    </a>
+    <a href="#" class="cat">
+      <img src="photos/baby-dress_4157718.png" alt="Kids">
+      <p>Kids</p>
+    </a>
+    <a href="#" class="cat">
+      <img src="photos/high-heel_6267707.png" alt="Footwear">
+      <p>Footwear</p>
+    </a>
+    <a href="#" class="cat">
+      <img src="photos/bracelet_5640782.png" alt="Accessories">
+      <p>Accessories</p>
+    </a>
+    <a href="#" class="cat">
+      <img src="photos/beauty-product_16779310.png" alt="Beauty">
+      <p>Beauty</p>
+    </a>
+  </div>
+
+  <!-- ===== TRENDING PRODUCTS ===== -->
+  <section class="products">
+    <h2>🔥 Trending Fashion</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="product-images/winterjacket.jpg" alt="Jacket">
+        <div class="product-info">
+          <h4>Winter Jacket</h4>
+          <p>₹1,999</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="product-images/designersaree.jpg" alt="Saree">
+        <div class="product-info">
+          <h4>Designer Saree</h4>
+          <p>₹2,499</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="product-images/sportshoe.jpg" alt="Shoes">
+        <div class="product-info">
+          <h4>Sports Shoes</h4>
+          <p>₹1,299</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="product-images/smartwatch...jpg" alt="Watch">
+        <div class="product-info">
+          <h4>Smart Watch</h4>
+          <p>₹3,499</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SALE STRIP ===== -->
+<div class="sale-strip">
+  🎉 WINTER SALE: Flat 50% OFF on selected fashion | Hurry, Limited Time Only! 🎉
+</div>
+
+<!-- ===== FEATURED COLLECTIONS ===== -->
+<section class="collections">
+  <h2>✨ Featured Collections</h2>
+  <div class="collection-grid">
+    <div class="collection-card">
+      <img src="banner/wintercollection.jpg" alt="Winter Collection">
+      <div class="overlay"><p>Winter Collection</p></div>
+    </div>
+    <div class="collection-card">
+      <img src="banner/weddingwear.jpg" alt="Wedding Fashion">
+      <div class="overlay"><p>Wedding Styles</p></div>
+    </div>
+    <div class="collection-card">
+      <img src="banner/casualwear.jpg" alt="Casual Wear">
+      <div class="overlay"><p>Casual Wear</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="newsletter">
+    <h3>📩 Subscribe to our Newsletter</h3>
+    <p>Get updates on latest trends, offers & more.</p>
+    <input type="email" placeholder="Enter your email">
+    <button>Subscribe</button>
+  </div>
+  <div class="socials">
+    <p>Follow us:</p>
+    <i class="fab fa-facebook"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-twitter"></i>
+    <i class="fab fa-youtube"></i>
+  </div>
+</footer>
+
+
+  <!-- ===== SLIDER SCRIPT ===== -->
+  <script>
+    let slides = document.querySelectorAll(".banner img");
+    let index = 0;
+
+    function showSlide() {
+      slides.forEach((img, i) => {
+        img.classList.remove("active");
+        if (i === index) img.classList.add("active");
+      });
+      index = (index + 1) % slides.length;
+    }
+
+    setInterval(showSlide, 3000);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flipkart Clone</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<style></style>
+<body>
+
+ <!-- NAVIGATION -->
+<nav class="navbar">
+  <div class="logo">
+    <a href="index.html"><img src="photos/Flipcart.svg" alt="Flipkart"></a>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search for products, brands and more">
+    <button>🔍</button>
+  </div>
+
+  <div class="nav-icons">
+    <!-- ACCOUNT DROPDOWN -->
+    <div class="account-dropdown">
+      <a href="account.html" class="account-link">
+        <i class="fas fa-user"></i>
+      </a>
+      <div class="dropdown-menu">
+        <p>👋 Welcome, User</p>
+        <a href="account.html">My Profile</a>
+        <a href="#">My Orders</a>
+        <a href="#">Wishlist</a>
+        <a href="#">Settings</a>
+        <hr>
+        <a href="#" class="logout">Logout</a>
+      </div>
+    </div>
+
+    <!-- CART ICON -->
+    <a href="cart.html" class="cart-link">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-badge">0</span>
+    </a>
+  </div>
+</nav>
+
+
+<!-- CATEGORY SECTION -->
+<div class="categories">
+
+  <!-- Mobiles -->
+  <div class="cat-item">
+    <a href="mobiles.html" class="cat">
+      <img src="photos/responsive_423868.png" alt="mobiles">
+      <p>Mobiles & Tablets</p>
+    </a>
+    <div class="sub-menu">
+      <a href="smartphones.html">Smartphones</a>
+      <a href="tablets.html">Tablets</a>
+      <a href="mobile-accessories.html">Smart Watches</a>
+    </div>
+  </div>
+
+  <!-- Fashion -->
+  <div class="cat-item">
+    <a href="fashion.html" class="cat">
+      <img src="photos/brand_7417708.png" alt="fashion">
+      <p>Fashion</p>
+    </a>
+    <div class="sub-menu">
+      <a href="mens-wear.html">Men's Wear</a>
+      <a href="womens-wear.html">Women's Wear</a>
+      <a href="kids-fashion.html">Kids Fashion</a>
+      <a href="footwear.html">Footwear</a>
+    </div>
+  </div>
+
+  <!-- Electronics / Appliances -->
+  <div class="cat-item">
+    <a href="electronics.html" class="cat">
+      <img src="photos/headphone_8869012.png" alt="electronics">
+      <p>Electronics / Appliances</p>
+    </a>
+    <div class="sub-menu">
+      <p style="font-weight:bold; text-align:center; color:#5c01fb; margin:5px 0;">Electronics</p>
+      <a href="laptops.html">Laptops</a>
+      <a href="audio.html">Headphones & Audio</a>
+      <a href="cameras.html">Cameras</a>
+      <hr style="margin:6px 0; border:0; border-top:1px solid #ccc;">
+      <p style="font-weight:bold; text-align:center; color:#5c01fb; margin:5px 0;">Appliances</p>
+      <a href="washing-machines.html">Washing Machines</a>
+      <a href="refrigerators.html">Refrigerators</a>
+      <a href="microwaves.html">Microwaves</a>
+    </div>
+  </div>
+
+  <!-- Home -->
+  <div class="cat-item">
+    <a href="home.html" class="cat">
+      <img src="photos/furniture_2603741.png" alt="home">
+      <p>Home & Furniture</p>
+    </a>
+    <div class="sub-menu">
+      <a href="furniture.html">Furniture</a>
+      <a href="decor.html">Home Decor</a>
+      <a href="kitchen.html">Kitchen Essentials</a>
+    </div>
+  </div>
+
+  <!-- Travel -->
+  <div class="cat-item">
+    <a href="travel.html" class="cat">
+      <img src="photos/svg_11499703.png" alt="travel">
+      <p>Travel</p>
+    </a>
+    <div class="sub-menu">
+      <a href="flights.html">Flights</a>
+      <a href="trains.html">Trains</a>
+      <a href="buses.html">Buses</a>
+    </div>
+  </div>
+
+  <!-- Grocery -->
+  <div class="cat-item">
+    <a href="grocery.html" class="cat">
+      <img src="photos/shopping-bag_3514242.png" alt="grocery">
+      <p>Grocery</p>
+    </a>
+    <div class="sub-menu">
+      <a href="fruits.html">Fruits</a>
+      <a href="vegetables.html">Vegetables</a>
+      <a href="daily-needs.html">Daily Needs</a>
+    </div>
+  </div>
+
+  <!-- Toys -->
+  <div class="cat-item">
+    <a href="toys.html" class="cat">
+      <img src="photos/tricycle_2308038.png" alt="Toys">
+      <p>Toys & Games</p>
+    </a>
+    <div class="sub-menu">
+      <a href="outdoor-toys.html">Outdoor Toys</a>
+      <a href="educational-toys.html">Educational Toys</a>
+      <a href="action-figures.html">Action Figures</a>
+      <a href="puzzles.html">Puzzles</a>
+    </div>
+  </div>
+
+</div>
+
+
+  <!-- OFFER STRIP -->
+  <section class="offers">
+    <div class="offer-box">
+      <i class="fa-solid fa-bolt"></i>
+      <p>Big Billion Days Sale is Live! Grab upto 70% off 🔥</p>
+    </div>
+  </section>
+
+<!-- BANNER / SLIDER -->
+<div class="banner">
+  <div class="slides">
+    <img src="banner/3f18bdad72263ca1a912f7f2d5699827.jpg" class="active" alt="Banner 1">
+    <img src="banner/40c37e7dae68017805ef7e888461870e.jpg" alt="Banner 2">
+    <img src="banner/e4dcd8a80475b99cef4d66dc8df94909.jpg" alt="Banner 3">
+  </div>
+</div>
+
+
+
+  <!-- ===== DEALS STRIP ===== -->
+<div class="deal-strip">
+  🎁 Mega Festive Sale — Up to <strong>70% OFF</strong> on Electronics, Fashion & More! | Use Code: <b>FEST25</b>
+</div>
+
+  <!-- TRENDING SECTION -->
+  <section class="trending">
+    <h2>🔥 Trending Now</h2>
+    <div class="trending-grid">
+      <div class="trend-card">
+        <img src="product-images/winterjacket.jpg" alt="trend">
+        <p>Street Style Hoodies</p>
+      </div>
+      <div class="trend-card">
+        <img src="product-images/smartwatch.jpg" alt="trend">
+        <p>Smartwatch Sale</p>
+      </div>
+      <div class="trend-card">
+        <img src="product-images/Sneakers.jpg" alt="trend">
+        <p>Stylish Sneakers</p>
+      </div>
+      <div class="trend-card">
+        <img src="product-images/earbuds.jpg" alt="trend">
+        <p>Wireless Earbuds</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT CARDS SECTION -->
+<section class="featured-products">
+  <h2>Featured Products</h2>
+  <div class="featured-grid">
+    <div class="featured-card">
+      <div class="img-container">
+        <img src="product-images/headphone.jpg" alt="Product 1">
+      </div>
+      <div class="product-info">
+        <p class="product-name">Wireless Headphones</p>
+        <p class="product-price">₹1,999</p>
+        <p class="product-stock in-stock">In Stock</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="img-container">
+        <img src="product-images/smartwatch.jpg" alt="Product 2">
+      </div>
+      <div class="product-info">
+        <p class="product-name">Smartwatch Series 5</p>
+        <p class="product-price">₹3,499</p>
+        <p class="product-stock sold-out">Sold Out</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="img-container">
+        <img src="product-images/bluetooth speaker.jpg" alt="Product 3">
+      </div>
+      <div class="product-info">
+        <p class="product-name">Bluetooth Speaker</p>
+        <p class="product-price">₹899</p>
+        <p class="product-stock in-stock">In Stock</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="img-container">
+        <img src="product-images/mouse.jpg" alt="Product 4">
+      </div>
+      <div class="product-info">
+        <p class="product-name">Gaming Mouse</p>
+        <p class="product-price">₹499</p>
+        <p class="product-stock in-stock">In Stock</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="img-container">
+        <img src="product-images/laptop bag.jpg" alt="Product 5">
+      </div>
+      <div class="product-info">
+        <p class="product-name">Laptop Bag</p>
+        <p class="product-price">₹1,299</p>
+        <p class="product-stock in-stock">In Stock</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="img-container">
+        <img src="product-images/tablet cover.jpg" alt="Product 6">
+      </div>
+      <div class="product-info">
+        <p class="product-name">Tablet Cover</p>
+        <p class="product-price">₹599</p>
+        <p class="product-stock in-stock">In Stock</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="img-container">
+        <img src="product-images/wireless charger.jpg" alt="Product 7">
+      </div>
+      <div class="product-info">
+        <p class="product-name">Wireless Charger</p>
+        <p class="product-price">₹799</p>
+        <p class="product-stock sold-out">Sold Out</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="img-container">
+        <img src="product-images/earbuds.jpg" alt="Product 8">
+      </div>
+      <div class="product-info">
+        <p class="product-name">Bluetooth Earbuds</p>
+        <p class="product-price">₹1,099</p>
+        <p class="product-stock in-stock">In Stock</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="img-container">
+        <img src="product-images/smart light.jpg" alt="Product 9">
+      </div>
+      <div class="product-info">
+        <p class="product-name">Smart Light</p>
+        <p class="product-price">₹699</p>
+        <p class="product-stock in-stock">In Stock</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="img-container">
+        <img src="product-images/portable fan.jpg" alt="Product 10">
+      </div>
+      <div class="product-info">
+        <p class="product-name">Portable Fan</p>
+        <p class="product-price">₹499</p>
+        <p class="product-stock in-stock">In Stock</p>
+      </div>
+    </div>
+
+  <div class="featured-card">
+      <div class="img-container">
+        <img src="product-images/desk lamp.jpg" alt="Product 11">
+      </div>
+      <div class="product-info">
+        <p class="product-name">Desk Lamp</p>
+        <p class="product-price">₹799</p>
+        <p class="product-stock in-stock">In Stock</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="img-container">
+        <img src="product-images/gaming keyboard.jpg" alt="Product 12">
+      </div>
+      <div class="product-info">
+        <p class="product-name">Gaming Keyboard</p>
+        <p class="product-price">₹1,299</p>
+        <p class="product-stock in-stock">In Stock</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="img-container">
+        <img src="product-images/hard disk.jpg" alt="Product 13">
+      </div>
+      <div class="product-info">
+        <p class="product-name">External Hard Drive</p>
+        <p class="product-price">₹2,499</p>
+        <p class="product-stock sold-out">Sold Out</p>
+      </div>
+    </div>
+
+    <div class="featured-card">
+      <div class="img-container">
+        <img src="product-images/portable speaker.jpg" alt="Product 14">
+      </div>
+      <div class="product-info">
+        <p class="product-name">Portable Speaker</p>
+        <p class="product-price">₹1,199</p>
+        <p class="product-stock in-stock">In Stock</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SHOP BY CATEGORIES SECTION -->
+<section class="shop-categories">
+  <h2>Shop by Categories</h2>
+  <div class="category-grid">
+
+    <!-- Row 1 -->
+    <div class="category-card">
+      <a href="mobiles.html">
+        <img src="photos/responsive_423868.png" alt="Mobiles">
+        <p>Mobiles & Tablets</p>
+      </a>
+    </div>
+    <div class="category-card">
+      <a href="fashion.html">
+        <img src="photos/brand_7417708.png" alt="Fashion">
+        <p>Fashion</p>
+      </a>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="category-card">
+      <a href="electronics.html">
+        <img src="photos/headphone_8869012.png" alt="Electronics">
+        <p>Electronics</p>
+      </a>
+    </div>
+    <div class="category-card">
+      <a href="home.html">
+        <img src="photos/furniture_2603741.png" alt="Home & Furniture">
+        <p>Home & Furniture</p>
+      </a>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="category-card">
+      <a href="appliances.html">
+        <img src="photos/coffee-machine_3321311.png" alt="Appliances">
+        <p>Appliances</p>
+      </a>
+    </div>
+    <div class="category-card">
+      <a href="travel.html">
+        <img src="photos/svg_11499703.png" alt="Travel">
+        <p>Travel</p>
+      </a>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="category-card">
+      <a href="grocery.html">
+        <img src="photos/shopping-bag_3514242.png" alt="Grocery">
+        <p>Grocery</p>
+      </a>
+    </div>
+    
+    <div class="category-card">
+      <a href="toys.html">
+        <img src="photos/tricycle_2308038.png" alt="Toys">
+        <p>Toys & More</p>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FULL-SCREEN BANNER SECTION -->
+<section class="full-banner">
+  <div class="banner-container">
+    <div class="banner">
+      <a href="mobiles.html"><img src="banner/tablet.jpg" alt="Banner 1"></a>
+    </div>
+    <div class="banner">
+      <a href="electronics.html"><img src="banner/headphone.jpg" alt="Banner 2"></a>
+    </div>
+    <div class="banner">
+      <a href="mobiles.html"><img src="banner/Xiaomi Mi 9T.jpg" alt="Banner 3"></a>
+    </div>
+    <div class="banner">
+      <a href="electronics.html"><img src="banner/earphone.jpg" alt="Banner 4"></a>
+    </div>
+    <div class="banner">
+      <a href="electronics.html"><img src="banner/camera.jpg" alt="Banner 5"></a>
+    </div>
+    <div class="banner">
+      <a href="electronics.html"><img src="banner/gimbals.jpg" alt="Banner 6"></a>
+    </div>
+    <div class="banner">
+      <a href="toys.html"><img src="banner/biking.jpg" alt="Banner 7"></a>
+    </div>
+    <div class="banner">
+      <a href="tv.html"><img src="banner/tv.jpg" alt="Hisense E7 Pro QLED TV displayed on a modern stand with vibrant abstract graphics on the screen, neon geometric lights in the background, and promotional text in German reading Hisense E7 Pro QLED Das Spiel beginnt Geh darüber hinaus The scene feels futuristic and energetic"></a>
+    </div>
+  </div>
+</section>
+
+
+  <!-- NEWSLETTER SIGNUP -->
+  <section class="newsletter">
+    <h2>📩 Stay Updated</h2>
+    <p>Subscribe to get exclusive offers and new product updates!</p>
+    <form>
+      <input type="email" placeholder="Enter your email">
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+<!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>About</h3>
+        <p>Flipkart Clone is a demo e-commerce project built for learning & creativity.</p>
+      </div>
+      <div>
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-twitter"></i>
+        </div>
+      </div>
+    </div>
+    <p class="copyright">© 2025 Flipkart Clone. All rights reserved.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

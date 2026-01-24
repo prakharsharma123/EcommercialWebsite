@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electronics Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #dae5ff;
+      padding: 10px 25px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 40px;
+      cursor: pointer;
+    }
+
+    .search-bar {
+      display: flex;
+      flex: 1;
+      margin: 0 25px;
+      max-width: 500px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 8px 12px;
+      border: none;
+      outline: none;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .search-bar button {
+      background: #2874f0;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+    }
+
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .nav-icons i {
+      font-size: 22px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    /* ===== ACCOUNT DROPDOWN ===== */
+    .account-dropdown {
+      position: relative;
+    }
+
+    .account-dropdown:hover .dropdown-menu {
+      display: flex;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      display: none;
+      flex-direction: column;
+      width: 200px;
+      z-index: 10;
+    }
+
+    .dropdown-menu a, .dropdown-menu p {
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .dropdown-menu a:hover {
+      background: #f0f0f0;
+    }
+
+    .logout {
+      color: red;
+    }
+
+    /* SMALL BANNERS (CLICKABLE with hover text) */
+.small-banners {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+  padding: 10px;
+  background: #dae5ff;
+}
+
+.small-banners .banner-item {
+  position: relative;
+  width: 32.5%;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.small-banners img {
+  width: 100%;
+  height: 230px;
+  object-fit: contain;
+  border: 2px solid #bfcde0;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.small-banners img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border-color: #7a8fd6;
+}
+
+/* Hover Text */
+.banner-text {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 5px;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.banner-item:hover .banner-text {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+    /* ===== BANNER (COLUMN DISPLAY) ===== */
+    .banner {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      margin-bottom: 10px;
+      border-radius: 6px;
+    }
+
+    /* ===== CATEGORY SECTION ===== */
+    .category-section {
+      background: white;
+      padding: 30px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .category-card {
+      text-align: center;
+      width: 140px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .category-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* ===== PRODUCTS SECTION ===== */
+    .products {
+      padding: 40px 20px;
+    }
+
+    .products h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .product-info h4 {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+
+    .product-info p {
+      color: #2874f0;
+      font-weight: bold;
+    }
+  
+    .product-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    }
+
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #dae5ff;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="photos/Flipcart.svg" alt="Logo"></a>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search electronics, gadgets and more...">
+      <button>🔍</button>
+    </div>
+
+    <div class="nav-icons">
+      <div class="account-dropdown">
+        <a href="account.html"><i class="fas fa-user"></i></a>
+        <div class="dropdown-menu">
+          <p>👋 Hello, User</p>
+          <a href="account.html">My Profile</a>
+          <a href="#">My Orders</a>
+          <a href="#">Wishlist</a>
+          <a href="#">Settings</a>
+          <hr>
+          <a href="#" class="logout">Logout</a>
+        </div>
+      </div>
+      <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+    </div>
+  </nav>
+
+  <!-- ===== BANNER SECTION (STACKED IMAGES) ===== -->
+  <div class="banner">
+    <img src="banner/electronic2.jpg" alt="Banner 1">
+    <img src="banner/elctroniccamera.jpg" alt="Banner 2">
+    <img src="banner/electronic3.jpg" alt="Banner 3">
+  </div>
+
+<!-- ===== CLICKABLE BANNERS ===== -->
+<section class="small-banners">
+  <a href="#mobiles-section" class="banner-item">
+    <img src="banner/pc.jpg" alt="Mobiles" />
+    <span class="banner-text">Laptops</span>
+  </a>
+  <a href="#tablets-section" class="banner-item">
+    <img src="banner/image.png" alt="Tablets" />
+    <span class="banner-text">Headphones & Audio</span>
+  </a>
+  <a href="#accessories-section" class="banner-item">
+    <img src="banner/camera.jpg" alt="Accessories" />
+    <span class="banner-text">Cameras</span>
+  </a>
+</section>
+
+
+<!-- ===== PRODUCTS ===== -->
+<section class="products">
+  <h2>⚡ Trending Electronics</h2>
+  <div class="product-grid">
+
+    <a href="iphone15.html" class="product-card">
+      <img src="product-images/iphone.jpg" alt="iPhone">
+      <div class="product-info">
+        <h4>Apple iPhone 15 Pro</h4>
+        <p>₹1,39,999</p>
+      </div>
+    </a>
+
+    <a href="electonicfiles/asus-zephyrus.html" class="product-card">
+      <img src="product-images/ASUS ROG Zephyrus.jpg" alt="Laptop">
+      <div class="product-info">
+        <h4>ASUS ROG Zephyrus</h4>
+        <p>₹1,24,990</p>
+      </div>
+    </a>
+
+    <a href="sony-headphones.html" class="product-card">
+      <img src="product-images/headphone.jpg" alt="Headphones">
+      <div class="product-info">
+        <h4>Sony WH-1000XM5</h4>
+        <p>₹29,999</p>
+      </div>
+    </a>
+
+    <a href="canon-eos.html" class="product-card">
+      <img src="product-images/Canon EOS 200D.jpg" alt="Camera">
+      <div class="product-info">
+        <h4>Canon EOS 200D</h4>
+        <p>₹52,499</p>
+      </div>
+    </a>
+
+    <a href="apple-watch.html" class="product-card">
+      <img src="product-images/smartwatch.jpg" alt="Smartwatch">
+      <div class="product-info">
+        <h4>Apple Watch Series 9</h4>
+        <p>₹39,999</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    © 2025 ElectroKart | Designed with ⚡ by Your Name
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Account | Flipkart Clone</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f8f9fa;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #c9d0db;
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.navbar .logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.search-bar {
+  flex: 1;
+  margin: 0 20px;
+  display: flex;
+  max-width: 400px;  /* limit width of search bar */
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 2px 0 0 2px;
+}
+
+
+.search-bar button {
+  padding: 8px 15px;
+  background: #7a8fd6;
+  border: none;
+  cursor: pointer;
+  border-radius: 0 2px 2px 0;
+}
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #000;
+}
+
+.nav-icons a {
+  color: #000;
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-icons i {
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.nav-icons i:hover {
+  transform: scale(1.1);
+  color: #2874f0;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  padding: 2px 6px;
+}
+
+
+/* ACCOUNT DROPDOWN */
+.account-dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background: white;
+  color: #333;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  display: none;
+  flex-direction: column;
+  width: 200px;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+}
+
+.account-dropdown:hover .dropdown-menu {
+  display: flex;
+  animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-menu a {
+  padding: 8px 15px;
+  text-decoration: none;
+  color: #333;
+  transition: 0.2s;
+}
+
+.dropdown-menu a:hover {
+  background: #f5f5f5;
+}
+
+.dropdown-menu .welcome {
+  padding: 8px 15px;
+  font-weight: bold;
+}
+
+.logout {
+  color: red !important;
+}
+
+/* ACCOUNT SECTION */
+.account-section {
+  padding: 50px;
+  text-align: center;
+}
+
+.account-container {
+  max-width: 1000px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.account-container h2 {
+  margin-bottom: 20px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.account-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.detail-card {
+  background: #fff9c4;
+  padding: 25px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.detail-card:hover {
+  background: #ffeb3b;
+  transform: translateY(-5px);
+}
+
+.detail-card i {
+  font-size: 40px;
+  color: #2874f0;
+  margin-bottom: 10px;
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  color: #ccc;
+  padding: 40px 20px;
+}
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+}
+.footer-grid h3 {
+  color: white;
+}
+.footer-grid a {
+  color: #ccc;
+  text-decoration: none;
+}
+.footer-grid a:hover {
+  color: #ffe500;
+}
+.social-icons i {
+  margin: 5px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.social-icons i:hover {
+  color: #ffe500;
+}
+
+</style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="photos/Flipcart.svg" alt="Flipkart"></a>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products, brands and more">
+      <button>🔍</button>
+    </div>
+
+    <div class="nav-icons">
+      <!-- Account -->
+      <div class="account-dropdown">
+        <i class="fas fa-user"></i>
+        <div class="dropdown-menu">
+          <p class="welcome">👋 Welcome, Prakhar</p>
+          <a href="#">My Profile</a>
+          <a href="#">My Orders</a>
+          <a href="#">Wishlist</a>
+          <a href="#">Settings</a>
+          <hr>
+          <a href="#" class="logout">Logout</a>
+        </div>
+      </div>
+
+      <!-- Cart -->
+      <a href="cart.html" class="nav-link">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-badge">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ACCOUNT SECTION -->
+  <section class="account-section">
+    <div class="account-container">
+      <h2>Welcome, Prakhar</h2>
+      <p>Manage your personal details, orders, and wishlist all in one place.</p>
+
+      <div class="account-details">
+        <div class="detail-card">
+          <i class="fas fa-user-circle"></i>
+          <h3>Profile Information</h3>
+          <p>View and edit your personal details like name, email, and address.</p>
+        </div>
+
+        <div class="detail-card">
+          <i class="fas fa-box"></i>
+          <h3>My Orders</h3>
+          <p>Check your order history, track your packages, and manage returns.</p>
+        </div>
+
+        <div class="detail-card">
+          <i class="fas fa-heart"></i>
+          <h3>Wishlist</h3>
+          <p>See all your saved products and buy them anytime.</p>
+        </div>
+
+        <div class="detail-card">
+          <i class="fas fa-cog"></i>
+          <h3>Settings</h3>
+          <p>Manage your password, notifications, and privacy preferences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>About</h3>
+        <p>Flipkart Clone is a demo e-commerce project built for learning & creativity.</p>
+      </div>
+      <div>
+        <h3>Support</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <i class="fab fa-facebook"></i>
+          <i class="fab fa-instagram"></i>
+          <i class="fab fa-twitter"></i>
+        </div>
+      </div>
+    </div>
+    <p class="copyright">© 2025 Flipkart Clone. All rights reserved.</p>
+  </footer>
+<script>
+// Simple cart badge simulation (optional)
+document.addEventListener("DOMContentLoaded", () => {
+  const cartBadge = document.querySelector(".cart-badge");
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  cartBadge.textContent = cartItems.length;
+});
+
+</script>
+</body>
+</html>

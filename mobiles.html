@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <title>Mobiles & Tablets</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f9faff;
+      color: #333;
+      scroll-behavior: smooth; /* enables smooth scrolling */
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #c9d0db;
+      padding: 10px 20px;
+    }
+
+    .logo img {
+      height: 40px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .logo img:hover {
+      transform: scale(1.05);
+    }
+
+    .search-bar {
+      flex: 1;
+      margin: 0 20px;
+      display: flex;
+      max-width: 400px;
+    }
+
+    .search-bar input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 2px 0 0 2px;
+    }
+
+    .search-bar button {
+      padding: 8px 15px;
+      background: #7a8fd6;
+      border: none;
+      cursor: pointer;
+      border-radius: 0 2px 2px 0;
+    }
+
+    .nav-icons i {
+      font-size: 24px;
+      margin-left: 15px;
+      cursor: pointer;
+      color: #111;
+    }
+
+    /* SMALL BANNERS (CLICKABLE with hover text) */
+.small-banners {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+  padding: 10px;
+  background: #dae5ff;
+}
+
+.small-banners .banner-item {
+  position: relative;
+  width: 32.5%;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.small-banners img {
+  width: 100%;
+  height: 230px;
+  object-fit: contain;
+  border: 2px solid #bfcde0;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.small-banners img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border-color: #7a8fd6;
+}
+
+/* Hover Text */
+.banner-text {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 5px;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.banner-item:hover .banner-text {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+      /* MAIN BANNER */
+    .banner {
+      width: 100%;
+      text-align: center;
+      background: #fff;
+      padding: 10px 0;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: none;
+    }
+
+    .banner img.active {
+      display: block;
+    }
+
+
+    /* SECTION STYLING */
+    section {
+      padding: 40px 20px;
+      background: #fff;
+      margin: 20px auto;
+      border-radius: 10px;
+      max-width: 1200px;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    section h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 15px;
+    }
+
+    .product-card {
+      background: #f9f9f9;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .product-card h4 {
+      margin: 10px 0 5px;
+    }
+
+    .product-card p {
+      color: #111;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="photos/Flipcart.svg" alt="Flipkart" /></a>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products, brands and more" />
+      <button>🔍</button>
+    </div>
+    <div class="nav-icons">
+      <i class="fas fa-user"></i>
+      <i class="fas fa-shopping-cart"></i>
+    </div>
+  </nav>
+
+<!-- ===== CLICKABLE BANNERS ===== -->
+<section class="small-banners">
+  <a href="#mobiles-section" class="banner-item">
+    <img src="banner/smartphone.jpg" alt="Mobiles" />
+    <span class="banner-text">Mobiles</span>
+  </a>
+  <a href="#tablets-section" class="banner-item">
+    <img src="banner/tablet.jpg" alt="Tablets" />
+    <span class="banner-text">Tablets</span>
+  </a>
+  <a href="#accessories-section" class="banner-item">
+    <img src="banner/image.png" alt="Accessories" />
+    <span class="banner-text">Accessories</span>
+  </a>
+</section>
+
+
+    <!-- ===== MAIN BANNER SLIDER ===== -->
+  <div class="banner">
+    <img
+      src="banner/electronic3.jpg"
+      class="active"
+      alt="Banner 1"
+    />
+    <img
+      src="banner/d36038a7-0384-4268-a2a9-5d40a0976be0.jpeg"
+      alt="Banner 2"
+    />
+    <img src="banner/web banner design.jpeg" alt="Banner 3" />
+  </div>
+
+  <!-- ===== MOBILES SECTION ===== -->
+  <section id="mobiles-section">
+    <h2>Latest Smartphones</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="product-images/Galaxy S24 Ultra.jpg" alt="Phone 1" />
+        <h4>Galaxy S24 Ultra</h4>
+        <p>₹1,29,999</p>
+      </div>
+      <div class="product-card">
+        <img src="product-images/iphone.jpg" alt="Phone 2" />
+        <h4>iPhone 17 Pro</h4>
+        <p>₹1,49,999</p>
+      </div>
+      <div class="product-card">
+        <img src="product-images/OnePlus 12R.jpg" alt="Phone 3" />
+        <h4>OnePlus 12R</h4>
+        <p>₹54,999</p>
+        </div>
+      <div class="product-card">
+        <img src="product-images/Google Pixel 8 Pro.jpg" alt="Phone 4" />
+        <h4>Google Pixel 8 Pro</h4>
+        <p>₹99,999</p>
+      </div>
+      <div class="product-card">
+        <img src="product-images/Xiaomi 14 Ultra.jpg" alt="Phone 5" />
+        <h4>Xiaomi 14 Ultra</h4>
+        <p>₹69,999</p>
+      </div>
+      <div class="product-card">
+        <img src="product-images/Realme GT 6.jpg" alt="Phone 6" />
+        <h4>Realme GT 6</h4>
+        <p>₹39,999</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TABLETS SECTION ===== -->
+  <section id="tablets-section">
+    <h2>Top Tablets</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="product-images/tablet1.jpg" alt="Tablet 1" />
+        <h4>iPad Pro 11”</h4>
+        <p>₹89,999</p>
+      </div>
+      <div class="product-card">
+        <img src="product-images/tablet2.jpg" alt="Tablet 2" />
+        <h4>Samsung Tab S9</h4>
+        <p>₹74,999</p>
+      </div>
+      <div class="product-card">
+        <img src="product-images/tablet3.jpg" alt="Tablet 3" />
+        <h4>Lenovo Tab P11</h4>
+        <p>₹34,999</p>
+      </div>
+      <div class="product-card">
+        <img src="product-images/tablet4.jpg" alt="Tablet 4" />
+        <h4>Amazon Fire HD 10</h4>
+        <p>₹29,999</p>
+      </div>
+      <div class="product-card">
+        <img src="product-images/tablet5.jpg" alt="Tablet 5" />
+        <h4>Microsoft Surface Go 3</h4>
+        <p>₹39,999</p>
+      </div>
+      <div class="product-card">
+        <img src="product-images/tablet6.jpg" alt="Tablet 6" />
+        <h4>Huawei MatePad Pro</h4>
+        <p>₹49,999</p>
+      </div>
+  </section>
+
+  <!-- ===== ACCESSORIES SECTION ===== -->
+  <section id="accessories-section">
+    <h2>Mobile Accessories</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="product-images/charger.jpg" alt="Charger" />
+        <h4>Fast Charger</h4>
+        <p>₹999</p>
+      </div>
+      <div class="product-card">
+        <img src="product-images/cover.jpg" alt="Cover" />
+        <h4>Protective Case</h4>
+        <p>₹499</p>
+      </div>
+      <div class="product-card">
+        <img src="product-images/earbuds.jpg" alt="Earbuds" />
+        <h4>Wireless Earbuds</h4>
+        <p>₹1,999</p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+
+
+  
+
+
+ -->
+

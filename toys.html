@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <title>Toys & Games</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f9faff;
+      color: #333;
+    }
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #c9d0db;
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.navbar .logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.search-bar {
+  flex: 1;
+  margin: 0 20px;
+  display: flex;
+  max-width: 400px;  /* limit width of search bar */
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 2px 0 0 2px;
+}
+
+
+.search-bar button {
+  padding: 8px 15px;
+  background: #7a8fd6;
+  border: none;
+  cursor: pointer;
+  border-radius: 0 2px 2px 0;
+}
+
+.nav-icons i {
+  font-size: 24px;
+  margin-left: 15px;
+  cursor: pointer;
+  color: #111;
+}
+
+/* BANNER */
+.banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.banner img {
+  width: 100%;        
+  height: 500px;   /* 👈 Adjust banner height */
+  display: none;
+  object-fit: cover;   /* fills space neatly */
+}
+
+.banner img.active {
+  display: block;
+}
+
+
+    /* ===== Categories Section ===== */
+    .categories {
+      display: flex;              
+      justify-content: space-around; 
+      align-items: center;
+      padding: 10px;
+      background: #dae5ff;
+      flex-wrap: wrap;            
+    }
+
+    .categories a.cat {
+      display: flex;
+      flex-direction: column;     
+      align-items: center;
+      cursor: pointer;
+      text-decoration: none;      
+      color: inherit;
+      margin: 5px;
+      padding: 5px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .categories a.cat:hover {
+      background-color: #9a9bff;
+      color: #ffffff; 
+    }
+
+    .categories a.cat img {
+      width: 70px;       
+      height: 70px;
+      margin-bottom: 6px;
+    }
+
+    .categories a.cat p {
+      font-size: 14px;    
+      font-weight: bold;  
+      margin: 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+    <nav class="navbar">
+    <div class="logo"><a href="index.html">
+        <img src="photos/Flipcart.svg" alt="Flipkart"></a>
+    </div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for products, brands and more">
+      <button>🔍</button>
+    </div>
+  <div class="nav-icons">
+  <i class="fas fa-user"></i>
+  <i class="fas fa-shopping-cart"></i>
+  </div>
+  </nav>
+
+  <!-- ===== CATEGORIES ===== -->
+  <div class="categories">
+    <a href="outdoor-toys.html" class="cat">
+      <img src="photos/canoe-polo_15045614.png" alt="Outdoor">
+      <p>Outdoor Toys</p>
+    </a>
+    <a href="educational-toys.html" class="cat">
+      <img src="photos/abc-block_10278207.png" alt="Educational">
+      <p>Educational</p>
+    </a>
+    <a href="action-figures.html" class="cat">
+      <img src="photos/action-figure_6967630.png" alt="Action Figures">
+      <p>Action Figures</p>
+    </a>
+    <a href="puzzles.html" class="cat">
+      <img src="photos/solutions_8388612.png" alt="Puzzles">
+      <p>Puzzles</p>
+    </a>
+    <a href="plush-toys.html" class="cat">
+      <img src="photos/teddy-bear_4969887.png" alt="Plush Toys">
+      <p>Plush Toys</p>
+    </a>
+  </div>
+
+  <!-- ===== BANNER SLIDER ===== -->
+  <div class="banner">
+    <img src="banner/education.jpg" class="active">
+    <img src="banner/education2.jpg">
+    <img src="banner/Orange Yellow Green Creative Sportsfest Banner.png">
+    <img src="banner/plush2.jpg">
+    <img src="banner/puzzle.jpg">
+    <img src="banner/plush1.jpg">
+  </div>
+
+
+
+  <!-- ===== SLIDER SCRIPT ===== -->
+  <script>
+    let slides = document.querySelectorAll(".banner img");
+    let index = 0;
+
+    function showSlide() {
+      slides.forEach((img, i) => {
+        img.classList.remove("active");
+        if (i === index) img.classList.add("active");
+      });
+      index = (index + 1) % slides.length;
+    }
+
+    setInterval(showSlide, 3000); // change every 3 sec
+  </script>
+
+</body>
+</html>
